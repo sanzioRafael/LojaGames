@@ -120,7 +120,7 @@ public class UsuarioControle {
 			addMensage("Usuário", "Usuário Cadastrado com sucesso!");
 
 			String texto = vo.getNome()
-					+ "foi cadastrado com sucesso - Login: " + vo.getLogin()
+					+ " foi cadastrado com sucesso - Login: " + vo.getLogin()
 					+ " - Senha: " + auxSenha;
 
 			sendEmail(vo.getEmail(), SMTP_AUTH_PWD, SMTP_AUTH_USER, "Purpose",
