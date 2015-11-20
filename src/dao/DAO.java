@@ -1,8 +1,10 @@
 package dao;
 
 import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import util.SessionFactoryUtil;
 
 public class DAO<VO> {
@@ -27,24 +29,13 @@ public class DAO<VO> {
 		t.commit();
 		s.clear();
 	}
-	
-	/*public void deletes(VO vo) {
-		Session session = SessionFactoryUtil.getInstance().openSession();
-		Load load = session.get;
-
-		load.getSessions().remove(session);
-		session.getLoads().remove(load);
-		loadDao.saveObject(load);
-	}*/
 
 	public VO getById(long id) {
-		return (VO) SessionFactoryUtil.getInstance().openSession()
-				.get(classe, id);
+		return (VO) SessionFactoryUtil.getInstance().openSession().get(classe, id);
 	}
 
 	public List<VO> getAll() {
-		return SessionFactoryUtil.getInstance().openSession()
-				.createCriteria(classe).list();
+		return SessionFactoryUtil.getInstance().openSession().createCriteria(classe).list();
 	}
 
 }

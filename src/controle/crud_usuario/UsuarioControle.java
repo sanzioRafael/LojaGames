@@ -81,14 +81,14 @@ public class UsuarioControle {
 				vo.setEstadoLogado(true);
 				usuario.update(vo);
 
-				addMensage("Usuário", vo.getNome() + " Logado com sucesso!");
+				addMensage("Usuï¿½rio", vo.getNome() + " Logado com sucesso!");
 				ec.redirect("../modulo2/perfil_m2.jsf");
 			} else {
 				vo = null;
 				login = "";
 				senha = "";
 				FacesContext.getCurrentInstance().addMessage("formLogin",
-						new FacesMessage("Usuário Logado no sistema"));
+						new FacesMessage("Usuï¿½rio Logado no sistema"));
 			}
 		} catch (UsuarioVOException e) {
 			vo = new UsuarioVO();
@@ -114,10 +114,8 @@ public class UsuarioControle {
 			String auxSenha = vo.getSenha() != null ? vo.getSenha() : "";
 
 			usuario.save(vo);
-			FacesContext fc = FacesContext.getCurrentInstance();
-			ExternalContext ec = fc.getExternalContext();
 
-			addMensage("Usuário", "Usuário Cadastrado com sucesso!");
+			addMensage("UsuÃ¡rio", "Usuï¿½rio Cadastrado com sucesso!");
 
 			String texto = vo.getNome()
 					+ " foi cadastrado com sucesso - Login: " + vo.getLogin()
@@ -127,7 +125,7 @@ public class UsuarioControle {
 					texto);
 			
 			FacesContext.getCurrentInstance().addMessage("formCadastro",
-					new FacesMessage("Usuário Cadastrado com sucesso, verificar o e-mail: " + vo.getEmail()));
+					new FacesMessage("Usuï¿½rio Cadastrado com sucesso, verificar o e-mail: " + vo.getEmail()));
 			vo = new UsuarioVO();
 			login = "";
 			senha = "";
@@ -151,7 +149,7 @@ public class UsuarioControle {
 		vo = new UsuarioVO();
 
 		try {
-			addMensage("Usuário", "Usuário Desconectado com sucesso!");
+			addMensage("Usuï¿½rio", "Usuï¿½rio Desconectado com sucesso!");
 			ec.redirect("../modulo1/crud_usuario.jsf");
 		} catch (IOException e) {
 			FacesContext.getCurrentInstance().addMessage("formOut",
@@ -164,8 +162,7 @@ public class UsuarioControle {
 	}
 
 	public void addMensage(String sumario, String detalhes) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-				sumario, detalhes);
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, sumario, detalhes);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
